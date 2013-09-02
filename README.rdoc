@@ -1,28 +1,44 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Simple perfromance test for Rails-4
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Setup
+
+* bundle 
+* rake db:migrate
+* Run rails console and create 500 users: (0..500).each {|i| User.create_user }
+
+== DB schema
+
+User -< Albums -< Images
+
+== Access
+
+Access test via : http://localhost:3000/albums
+
+== Logic behind
+
+Simple load
+
+  @user = User.where(:id => Random.new.rand((10..400))).includes(:albums).first
+
+== Test
+
+ab -n 1000 -c 20 http://127.0.0.1:3000/albums/
+
+== Environment
+
+Macbook Pro i5 2.6G 8GB SSD
+
+== Results
+
+MRI (Cruby)
+* Thin 173.03 [#/sec] (mean)
+* Puma 269.44 [#/sec] (mean)
+
+jRuby
+* Webrick 190.79 [#/sec] (mean)
+* Puma 801.26 [#/sec] (mean)
+
+
