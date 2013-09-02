@@ -9,7 +9,9 @@ Simple perfromance test for Rails-4
 * rake db:migrate
 * Run rails console and create 500 users: (0..500).each {|i| User.create_user }
 
-== DB schema
+== DB
+
+MySQL
 
 User -< Albums -< Images
 
@@ -34,11 +36,11 @@ Macbook Pro i5 2.6G 8GB SSD
 == Results
 
 MRI (Cruby)
-* Thin 173.03 [#/sec] (mean)
-* Puma 269.44 [#/sec] (mean)
+* Thin 173.03 [#/sec] (cruby-thin.txt)
+* Puma 269.44 [#/sec] (cruby-puma.txt)
 
 jRuby
-* Webrick 190.79 [#/sec] (mean)
-* Puma 801.26 [#/sec] (mean)
+* Webrick 190.79 [#/sec] (jruby-webrick.txt)
+* Puma 801.26 [#/sec] (jruby-puma.txt)
 
 
