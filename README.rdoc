@@ -4,11 +4,11 @@ Simple perfromance test for Rails-4
 
 == Results
 
-MRI (Cruby)
+MRI (ruby 2.0)
 * Thin 173.03 [#/sec] (cruby-thin.txt)
 * Puma 269.44 [#/sec] (cruby-puma.txt)
 
-jRuby
+jRuby (1.7.4)
 * Webrick 190.79 [#/sec] (jruby-webrick.txt)
 * Puma 801.26 [#/sec] (jruby-puma.txt)
 
