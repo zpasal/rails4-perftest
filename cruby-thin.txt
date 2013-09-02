@@ -1,0 +1,56 @@
+~/Programming/test-puma>ab -n 1000 -c 20 http://127.0.0.1:3000/albums/
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        thin
+Server Hostname:        127.0.0.1
+Server Port:            3000
+
+Document Path:          /albums/
+Document Length:        782 bytes
+
+Concurrency Level:      20
+Time taken for tests:   5.779 seconds
+Complete requests:      1000
+Failed requests:        936
+   (Connect: 0, Receive: 0, Length: 936, Exceptions: 0)
+Write errors:           0
+Total transferred:      1618556 bytes
+HTML transferred:       778042 bytes
+Requests per second:    173.03 [#/sec] (mean)
+Time per request:       115.587 [ms] (mean)
+Time per request:       5.779 [ms] (mean, across all concurrent requests)
+Transfer rate:          273.50 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       1
+Processing:    11  115  32.5    102     200
+Waiting:        5   91  35.1     93     174
+Total:         11  115  32.5    102     201
+
+Percentage of the requests served within a certain time (ms)
+  50%    102
+  66%    130
+  75%    146
+  80%    150
+  90%    155
+  95%    164
+  98%    184
+  99%    196
+ 100%    201 (longest request)
